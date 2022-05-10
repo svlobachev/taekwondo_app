@@ -1,0 +1,47 @@
+name: taekwondo_app
+description: Dart gRPC sample client and server.
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  font_awesome_flutter: ^10.1.0
+  provider: ^6.0.2
+#  flutter_bloc: ^8.0.1
+  async: ^2.8.2
+  grpc: ^3.0.2
+  protobuf: ^2.0.1
+  flutter_gen: ^4.1.6
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+  bottom_navy_bar: ^6.0.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.4
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/img/
+
+  fonts:
+    - family: WorkSansSemiBold
+      fonts:
+        - asset: assets/fonts/Work_Sans/WorkSans-SemiBold.ttf
+
+    - family: WorkSansBold
+      fonts:
+        - asset: assets/fonts/Work_Sans/WorkSans-Bold.ttf
+
+    - family: WorkSansMedium
+      fonts:
+        - asset: assets/fonts/Work_Sans/WorkSans-Medium.ttf
