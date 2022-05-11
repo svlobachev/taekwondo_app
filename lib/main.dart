@@ -3,20 +3,22 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:taekwondo_app/common/theme.dart';
+import 'package:taekwondo_app/common/theme_scheme.dart';
 import 'package:taekwondo_app/models/cart_model.dart';
 import 'package:taekwondo_app/models/catalog_model.dart';
 import 'package:taekwondo_app/screens/cart_scr.dart';
 import 'package:taekwondo_app/screens/catalog_scr.dart';
+import 'package:taekwondo_app/screens/home_scr.dart';
 import 'package:taekwondo_app/screens/login_scr.dart';
 import 'package:taekwondo_app/widgets/navigation/bottomNavigationBar.dart';
-import 'package:taekwondo_app/widgets/navigation/navDrawer.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
   setupWindow();
   runApp(const MyApp());
 }
+
+ThemeMode themeMode = ThemeMode.system;
 
 const double windowWidth = 400;
 const double windowHeight = 800;
@@ -48,7 +50,7 @@ class MyApp extends StatelessWidget {
         // In this sample app, CatalogModel never changes, so a simple Provider
         // is sufficient.
         Provider(create: (context) => CatalogModel()),
-        Provider(create: (context) => NavDrawer()),
+
         // CartModel is implemented as a ChangeNotifier, which calls for the use
         // of ChangeNotifierProvider. Moreover, CartModel depends
         // on CatalogModel, so a ProxyProvider is needed.
@@ -62,12 +64,19 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        themeMode: themeMode,
         title: 'Provider Demo',
-        theme: appTheme,
+        // подключить готовые библиотечные темы
+        // theme: FlexThemeData.light(scheme: FlexScheme.deepBlue),
+        // darkTheme: FlexThemeData.dark(scheme: FlexScheme.deepBlue),
+        // подключить пользовательскую тему
+        theme: MyFlexThemeDataLight,
+        darkTheme: MyFlexThemeDataDart,
         initialRoute: '/',
         routes: {
           '/': (context) => const MyLogin(),
-          '/bottom_navigation': (context) => MyBottomNavigationBar(),
+          '/home': (context) => HomePage(),
+          '/bottom_navigation': (context) => bottomNavigationBar,
           '/catalog': (context) => const MyCatalog(),
           '/cart': (context) => const MyCart(),
         },

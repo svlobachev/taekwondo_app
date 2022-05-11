@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:taekwondo_app/common/theme.dart';
 
 class MyLogin extends StatelessWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -15,7 +14,8 @@ class MyLogin extends StatelessWidget {
             children: [
               Text(
                 'Welcome',
-                style: Theme.of(context).textTheme.headline1,
+                // style: Theme.of(context).textTheme.headline3,
+                style: TextStyle(height: 2, fontSize: 30),
               ),
               TextFormField(
                 decoration: const InputDecoration(
@@ -34,11 +34,12 @@ class MyLogin extends StatelessWidget {
               ElevatedButton(
                 child: const Text('ENTER'),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/bottom_navigation');
+                  // Navigator.pushReplacementNamed(context, '/catalog');
+                  Navigator.pushReplacementNamed(context, '/home');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: primaryColor,
-                ),
+                    // primary: primaryColor,
+                    ),
               )
             ],
           ),

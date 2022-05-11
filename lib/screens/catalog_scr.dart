@@ -14,7 +14,7 @@ class MyCatalog extends StatelessWidget {
       // bottomNavigationBar: MyBottomNavigationBar(),
       body: CustomScrollView(
         slivers: [
-          MyAppBar(),
+          MyAppBar,
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverList(
             delegate: SliverChildBuilderDelegate(

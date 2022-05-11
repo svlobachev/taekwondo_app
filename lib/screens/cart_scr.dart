@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taekwondo_app/models/cart_model.dart';
 
-import '../common/theme.dart';
-
 class MyCart extends StatelessWidget {
   const MyCart({Key? key}) : super(key: key);
 
@@ -12,10 +10,11 @@ class MyCart extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart', style: Theme.of(context).textTheme.headline1),
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Container(
-        color: primaryColor,
+        // color: primaryColor,
         child: Column(
           children: [
             Expanded(
